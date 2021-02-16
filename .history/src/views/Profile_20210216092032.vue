@@ -30,56 +30,35 @@
             </v-list-item-icon>
             <v-list-item>
               <v-list-item-content>
-                <v-list-item-title>Phone-Number:</v-list-item-title>
-              </v-list-item-content>
-              <v-list-item-content>
                 <v-list-item-title>{{ user.phoneNumber }}</v-list-item-title>
               </v-list-item-content>
             </v-list-item>
             <v-list-item>
-              <v-list-item-content>
-                <v-list-item-title>Gender:</v-list-item-title>
-              </v-list-item-content>
               <v-list-item-content>
                 <v-list-item-title>{{ user.gender }}</v-list-item-title>
               </v-list-item-content>
             </v-list-item>
             <v-list-item>
               <v-list-item-content>
-                <v-list-item-title>D.O.B:</v-list-item-title>
-              </v-list-item-content>
-              <v-list-item-content>
                 <v-list-item-title>{{ user.dob }}</v-list-item-title>
               </v-list-item-content>
             </v-list-item>
             <v-list-item>
-              <v-list-item-content>
-                <v-list-item-title>Marital Status:</v-list-item-title>
-              </v-list-item-content>
               <v-list-item-content>
                 <v-list-item-title>{{ user.maritalStatus }}</v-list-item-title>
               </v-list-item-content>
             </v-list-item>
             <v-list-item>
               <v-list-item-content>
-                <v-list-item-title>Country:</v-list-item-title>
-              </v-list-item-content>
-              <v-list-item-content>
                 <v-list-item-title>{{ user.country }}</v-list-item-title>
               </v-list-item-content>
             </v-list-item>
             <v-list-item>
               <v-list-item-content>
-                <v-list-item-title>State:</v-list-item-title>
-              </v-list-item-content>
-              <v-list-item-content>
                 <v-list-item-title>{{ user.state }}</v-list-item-title>
               </v-list-item-content>
             </v-list-item>
             <v-list-item>
-              <v-list-item-content>
-                <v-list-item-title>Address</v-list-item-title>
-              </v-list-item-content>
               <v-list-item-content>
                 <v-list-item-title>{{ user.address }}</v-list-item-title>
               </v-list-item-content>

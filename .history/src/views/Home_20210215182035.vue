@@ -4,9 +4,9 @@
     class="fill-height primary white--text d-flex flex-column justify-center pa-4"
   >
     <v-container>
-      <v-card class="mx-auto" max-width="600" height="300">
+      <v-card class="mx-auto" max-width="600" height="400">
         <header>
-          <div class="headline text-center pt-6 primary--text">
+          <div class="headline text-center pt-6 white--text">
             Login
           </div>
         </header>
@@ -14,6 +14,7 @@
           <form v-on:submit.prevent="login()">
             <div>
               <v-text-field
+                dark
                 label="E-mail Address"
                 v-model="email"
                 :rules="[rules.required, rules.email]"
@@ -21,6 +22,7 @@
             </div>
             <div>
               <v-text-field
+                dark
                 v-model="password"
                 :rules="[rules.required]"
                 label="Password"
@@ -33,9 +35,7 @@
               >
               </v-text-field>
               <div class="pt-6">
-                <v-btn block class="primary white--text" type="submit"
-                  >Login</v-btn
-                >
+                <v-btn block class="primary--text" type="submit">Login</v-btn>
               </div>
             </div>
           </form>
@@ -47,6 +47,7 @@
 
 <script>
 import axios from "axios";
+import router from "../router";
 export default {
   data() {
     return {
@@ -71,30 +72,12 @@ export default {
           email: this.email,
           password: this.password,
         })
-        .then((response) => {
-          if (response.data.token) {
-            localStorage.setItem("user_token", response.data.token);
-          }
-          this.$store.dispatch("setUser", response.data.user);
-          this.$router.push("/profile");
-          console.log("hello" + response.data.user);
+        .then(() => {
+          router.push({ name: "Profile" });
         })
         .catch((err) => {
           console.log(err);
         });
-      // async login() {
-      //   const response = await axios.post(
-      //     "https://login-api-grace.herokuapp.com/api/v1/auth/login",
-      //     {
-      //       email: this.email,
-      //       password: this.password,
-      //     }
-      //   );
-      //   localStorage.setItem("token", response.data.token);
-      //   this.$store.dispatch("setUser", response.data.user);
-      //   this.$router.push("/profile");
-      //   console.log("hello" + response.data.user);
-      // },
     },
   },
 };

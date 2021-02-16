@@ -75,9 +75,9 @@ export default {
           if (response.data.token) {
             localStorage.setItem("user_token", response.data.token);
           }
-          this.$store.dispatch("setUser", response.data.user);
-          this.$router.push("/profile");
-          console.log("hello" + response.data.user);
+
+          this.email = "";
+          this.password = "";
         })
         .catch((err) => {
           console.log(err);

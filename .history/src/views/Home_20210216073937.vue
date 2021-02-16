@@ -71,13 +71,10 @@ export default {
           email: this.email,
           password: this.password,
         })
-        .then((response) => {
-          if (response.data.token) {
-            localStorage.setItem("user_token", response.data.token);
-          }
-          this.$store.dispatch("setUser", response.data.user);
-          this.$router.push("/profile");
-          console.log("hello" + response.data.user);
+        .then((res) => {
+          localStorage.setItem("token", res.data);
+          this.email = "";
+          this.password = "";
         })
         .catch((err) => {
           console.log(err);

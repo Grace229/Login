@@ -66,36 +66,31 @@ export default {
   },
   methods: {
     login() {
-      axios
-        .post("https://login-api-grace.herokuapp.com/api/v1/auth/login", {
-          email: this.email,
-          password: this.password,
+        axios.post('https://login-api-grace.herokuapp.com/api/v1/auth/login',
+        {
+            email: this.email,
+            password: this.password
+        }).then(res  => {
+            localStorage.setItem('usertoken', res.data)
+            this.email = ""
+            this.password = ""
+            router.push({name: 'Profile'})
+        }).catch(err => {
+            console.log(err)
         })
-        .then((response) => {
-          if (response.data.token) {
-            localStorage.setItem("user_token", response.data.token);
-          }
-          this.$store.dispatch("setUser", response.data.user);
-          this.$router.push("/profile");
-          console.log("hello" + response.data.user);
-        })
-        .catch((err) => {
-          console.log(err);
-        });
-      // async login() {
-      //   const response = await axios.post(
-      //     "https://login-api-grace.herokuapp.com/api/v1/auth/login",
-      //     {
-      //       email: this.email,
-      //       password: this.password,
-      //     }
-      //   );
-      //   localStorage.setItem("token", response.data.token);
-      //   this.$store.dispatch("setUser", response.data.user);
-      //   this.$router.push("/profile");
-      //   console.log("hello" + response.data.user);
-      // },
-    },
+    // async login() {
+    //   const response = await axios.post(
+    //     "",
+    //     {
+    //       email: this.email,
+    //       password: this.password,
+    //     }
+    //   );
+    //   localStorage.setItem("token", response.data.token);
+    //   this.$store.dispatch("setUser", response.data.user);
+    //   this.$router.push("/profile");
+    //   console.log("hello" + response.data.user);
+    // },
   },
 };
 </script>

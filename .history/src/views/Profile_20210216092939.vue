@@ -78,7 +78,7 @@
             </v-list-item>
             <v-list-item>
               <v-list-item-content>
-                <v-list-item-title>Address</v-list-item-title>
+                <v-list-item-title class="title">Address</v-list-item-title>
               </v-list-item-content>
               <v-list-item-content>
                 <v-list-item-title>{{ user.address }}</v-list-item-title>
